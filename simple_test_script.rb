@@ -4,7 +4,7 @@ require 'capybara/dsl'
 extend Capybara::DSL
 
 runner = Applitools::ClassicRunner.new
-batch = Applitools::BatchInfo.new('Capybara example')
+batch = Applitools::BatchInfo.new('Demo Batch')
 eyes = Applitools::Selenium::Eyes.new(runner: runner)
 
 Applitools.register_capybara_driver :browser => :chrome
