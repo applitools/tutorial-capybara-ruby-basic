@@ -34,13 +34,9 @@ begin
 
   # Check the app page
   eyes.check_window('App Window')
-  eyes.close_async
-rescue => e
-  puts e.message
-  eyes.abort_if_not_closed
+  eyes.close
 ensure
+  eyes.abort_if_not_closed
   # Get and print all test results
   puts runner.get_all_test_results
 end
-
-
