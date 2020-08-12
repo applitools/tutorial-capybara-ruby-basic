@@ -27,13 +27,13 @@ begin
   # but then change the above URL to https://demo.applitools.com/index_v2.html (for the 2nd run)
 
   # check the login page
-  eyes.check_window('Login window')
+  eyes.check(name: 'Login window', target: Applitools::Selenium::Target.window.fully)
 
   # Click the 'Log In' button
   page.find(:id, 'log-in').click
 
   # Check the app page
-  eyes.check_window('App Window')
+  eyes.check(name: 'App Window', target: Applitools::Selenium::Target.window.fully)
   eyes.close
 ensure
   eyes.abort_if_not_closed
