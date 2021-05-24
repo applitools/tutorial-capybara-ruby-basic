@@ -1,3 +1,3 @@
 source 'https://rubygems.org'
 
-gem 'eyes_capybara'
+gem 'eyes_capybara', "= 3.18.0"
