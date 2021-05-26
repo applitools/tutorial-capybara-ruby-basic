@@ -3,15 +3,18 @@ require 'capybara/dsl'
 
 extend Capybara::DSL
 
+options = Selenium::WebDriver::Chrome::Options.new
+options.add_argument('--headless') if ENV['CI'] == 'true'
+
 runner = Applitools::ClassicRunner.new
 batch = Applitools::BatchInfo.new('Demo Batch')
 eyes = Applitools::Selenium::Eyes.new(runner: runner)
 
-Applitools.register_capybara_driver :browser => :chrome
+Applitools.register_capybara_driver :browser => :chrome, options:options
 
 eyes.configure do |conf|
   conf.batch = batch
-  conf.app_name = 'Demo App'
+  conf.app_name = 'Demo App - capybara'
   conf.test_name = 'Smoke Test'
   conf.viewport_size = Applitools::RectangleSize.new(800, 600)
 end
